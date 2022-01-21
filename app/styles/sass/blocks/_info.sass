@@ -1,0 +1,74 @@
+.info
+	padding: 100px 0
+	box-sizing: border-box
+.info_title
+	font-size: 2.2rem
+	text-align: center
+	padding: 0 12%
+	margin-bottom: 2rem
+	span
+		color: $accent
+.info_subtitle
+	font-size: 1.25rem
+	text-align: center
+	margin-bottom: 5rem
+.info_wrup
+	width: 80%
+	margin: 0 auto
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+.info_item
+	width: calc( 50% - 30px )
+	position: relative
+	padding-left: 70px
+	margin-bottom: 1.5rem
+.info_item_icon
+	display: block
+	width: 45px
+	height: 45px
+	position: absolute
+	top: 0
+	left: 0
+.info_item_h3
+	font-size: 1.3rem
+	font-weight: 600
+	margin-bottom: .75rem
+.info_item_p
+	color: #555
+
+@include media-breakpoint-down(xxl)
+	.info_title
+		padding: 0 5%
+	.info_wrup
+		width: 90%
+@include media-breakpoint-down(xl)
+	.info_title
+		padding: 0
+	.info_wrup
+		width: 100%
+
+@include media-breakpoint-down(lg)
+	.info_item
+		width: calc( 50% - 15px )
+		padding-left: 65px
+
+@include media-breakpoint-down(md)
+	.info
+		padding-left: 20px
+		padding-right: 20px
+	.info_item
+		width: 100%
+		padding-left: 70px
+
+@media only screen and (max-width : 500px)
+	.info
+		padding-left: 20px
+		padding-right: 20px
+	.info_title
+		font-size: 2rem
+	.info_item
+		padding-left: 50px
+	.info_item_icon
+		width: 35px
+		height: 35px

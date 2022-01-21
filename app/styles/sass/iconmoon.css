@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/fonts/icomoon.eot?kh0w9e');
+  src:  url('/fonts/icomoon.eot?kh0w9e#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?kh0w9e') format('truetype'),
+    url('/fonts/icomoon.woff?kh0w9e') format('woff'),
+    url('/fonts/icomoon.svg?kh0w9e#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--2:before {
+  content: "\e900";
+}
+.icon-appliances:before {
+  content: "\e901";
+}
+.icon-arrow:before {
+  content: "\e902";
+  color: #ffe100;
+}
+.icon-check:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-coll:before {
+  content: "\e904";
+}
+.icon-cub:before {
+  content: "\e905";
+}
+.icon-data:before {
+  content: "\e906";
+}
+.icon-delivery:before {
+  content: "\e907";
+}
+.icon-fb:before {
+  content: "\e908";
+}
+.icon-flam:before {
+  content: "\e909";
+}
+.icon-four:before {
+  content: "\e90a";
+}
+.icon-images:before {
+  content: "\e90b";
+}
+.icon-inst:before {
+  content: "\e90c";
+}
+.icon-map:before {
+  content: "\e90d";
+}
+.icon-meeting:before {
+  content: "\e90e";
+}
+.icon-ok:before {
+  content: "\e90f";
+}
+.icon-persent:before {
+  content: "\e910";
+}
+.icon-phone:before {
+  content: "\e911";
+}
+.icon-save:before {
+  content: "\e912";
+}
+.icon-stove:before {
+  content: "\e913";
+}
+.icon-vk:before {
+  content: "\e914";
+}
+.icon-voilet:before {
+  content: "\e915";
+}
+.icon-volume:before {
+  content: "\e916";
+}
+.icon-v-up:before {
+  content: "\e917";
+}
+.icon-yortube:before {
+  content: "\e918";
+}

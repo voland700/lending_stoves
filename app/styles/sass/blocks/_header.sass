@@ -1,0 +1,109 @@
+header
+	//height: 110px
+	padding: 10px 0 12px 0
+.top
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	line-height: 1.1
+
+.logo_wrup
+	display: flex
+	align-items: center
+	margin-right: auto
+	//line-height: 1
+	line-height: 1
+.logo_img
+	width: 65px
+	height: 65px
+	margin-right: .75rem
+.logo_title_wrap
+	color: darken($origin, 5%)
+	font-weight: 700
+	letter-spacing: 1px
+
+.logo_title
+	font-size: 1.8rem
+
+.logo_subtitle
+	font-size: 1.5rem
+	text-align: right
+
+.top_phone_wrap
+	display: flex
+	margin-right: 1.5rem
+	.icon-phone
+		font-size: 3.1rem
+		margin-right: .5rem
+.top_phone_txt
+
+.top_phone_coll
+	font-size: .95rem
+	font-weight: 700
+
+.top_phone_namber
+	font-size: 1.55rem
+	font-weight: 700
+.top_address_wrap
+	display: flex
+	margin-right: 1.5rem
+	.icon-map
+		font-size: 2.8rem
+		margin-right: .5rem
+.top_address_txt
+	display: flex
+	align-items: center
+	line-height: 1.2
+	//font-weight: 600
+
+@include media-breakpoint-down(xl)
+	.logo_img
+		width: 60px
+		height: 60px
+	.logo_title_wrap
+		display: none
+	.top_phone_namber
+		font-size: 1.5rem
+	.top_phone_wrap .icon-phone
+		font-size: 3rem
+	.top_address_wrap .icon-map
+		font-size: 2.8rem
+@include media-breakpoint-down(lg)
+	.top
+		flex-wrap: wrap
+		justify-content: space-between
+	.logo_wrup
+		margin-bottom: 1rem
+	.logo_title
+		font-size: 1.7rem
+
+	.logo_title_wrap
+		display: block
+@include media-breakpoint-down(md)
+	.top
+		justify-content: center
+		.btn
+			margin-bottom: 1rem
+
+	.logo_wrup
+		width: 100%
+		display: flex
+		justify-content: center
+		margin-bottom: 1rem
+	.logo_title
+		font-size: 1.7rem
+
+	.top_phone_wrap,
+	.top_address_wrap
+		width: 100%
+		justify-content: center
+		margin-bottom: 1rem
+		margin-right: 0
+
+	.top_phone_wrap .icon-phone
+		display: none
+	.top_address_wrap .icon-map
+		display: none
+	.top_phone_coll
+		display: block
+		text-align: center
