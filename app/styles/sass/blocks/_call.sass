@@ -1,0 +1,28 @@
+.call
+	padding: 100px 0
+.call_title
+	font-size: 2.2rem
+	text-align: center
+	padding: 0 12%
+	margin-bottom: 5rem
+.call_wrup
+	max-width: 920px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	box-sizing: border-box
+	margin: 0 auto
+
+@include media-breakpoint-down(lg)
+	.call_wrup
+		justify-content: space-around
+		.btn-b
+			margin-bottom: 1.5rem
+@include media-breakpoint-down(md)
+	.call
+		padding-left: 20px
+		padding-right: 20px
+@media only screen and (max-width : 400px)
+	.call_wrup
+		.w290
+			width: 90%

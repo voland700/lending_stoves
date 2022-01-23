@@ -1,0 +1,75 @@
+.why
+	padding: 100px 0
+	background-color: $bggray
+
+.why_title
+	font-size: 2.2rem
+	text-align: center
+	padding: 0 12%
+	margin-bottom: 2rem
+	span
+		color: $accent
+.why_suptitle
+	font-size: 1.25rem
+	font-weight: 300
+	color: #000
+	text-align: center
+	margin-bottom: 3rem
+	padding: 0 12%
+	span
+		color: $accent
+		//font-weight: 600
+.why_wrap
+	display: flex
+
+	//flex-wrap: wrap
+	justify-content: space-between
+	box-sizing: border-box
+.why_item
+	width: calc( 100%/4 - 60px )
+.why_item_img_wrup
+	position: relative
+	display: flex
+	&::before
+		content: ''
+		display: block
+		padding-top: 70%
+
+.why_item_img
+	display: block
+	width: 35%
+	height: auto
+	margin: auto
+	opacity: .8
+.why_item_h3
+	font-size: 1.05rem
+	font-weight: 600
+	text-align: center
+
+@include media-breakpoint-down(xxl)
+	.why_title
+		padding: 0 5%
+	.why_suptitle
+		width: 100%
+		padding: 0 8%
+@include media-breakpoint-down(xl)
+	.why_title
+		padding: 0
+	.why_suptitle
+		width: 100%
+		padding: 0
+	.why_item
+		width: calc( 100%/4 - 30px )
+
+@include media-breakpoint-down(md)
+	.why_wrap
+		flex-wrap: wrap
+	.why_item
+		width: calc( 100%/2 - 30px )
+
+@media only screen and (max-width : 450px)
+	.why_item
+		width: 100%
+	.why_item_h3
+		font-size: 1.2rem
+		padding: 0 10px

@@ -2,6 +2,7 @@
 
 $accent: #f05a24 // Accent Color
 $origin: #4f5a6c
+$bggray: #f5f5f5
 $fontsize: 16px // Body Font Size
 $textcolor: #444 // Text Color
 $lineheight: 1.65 // Document Line Height
@@ -30,10 +31,15 @@ $gutter: $grid-gutter-width
 		font-weight: $fweight
 		src: url($furl) format('woff2')
 
+@include font('roboto-oh5', normal, 300, '../fonts/roboto-light-webfont.woff2')
+@include font('roboto-oh5', italic, 300, '../fonts/roboto-lightitalic-webfont.woff2')
 @include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
 @include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('roboto-oh5', normal, 500, '../fonts/roboto-medium-webfont.woff2')
+@include font('roboto-oh5', italic, 500, '../fonts/roboto-mediumitalic-webfont.woff2')
 @include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
 @include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+
 
 // GENERAL CSS SETTINGS
 
@@ -103,6 +109,10 @@ body
 .ml-15
 	margin-left: 2.5rem
 
+.w290
+	width: 290px
+
+
 .btn
 	display: inline-block
 	text-decoration: none
@@ -119,6 +129,29 @@ body
 	border: 1px solid transparent
 	//padding: 0.375rem 0.75rem
 	padding: .5rem 2rem .6rem 2rem
+	border-radius: 0.35rem
+	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+
+
+
+
+
+.btn-b
+	display: inline-block
+	text-decoration: none
+	box-sizing: border-box
+	background-color: $accent
+	font-size: 1rem
+	font-weight: 600
+	line-height: 1.5
+	text-align: center
+	vertical-align: middle
+	cursor: pointer
+	user-select: none
+	background-color: transparent
+	border: 2px solid transparent
+	//padding: 0.375rem 0.75rem
+	padding: .75rem 2rem .8rem 2rem
 	border-radius: 0.35rem
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 
@@ -140,6 +173,14 @@ body
 		border-color: darken(#fff, 5%)
 		color: darken(#fff, 15%)
 
+.btn-outline-black
+	background-color: transparent
+	color: #000
+	border: 2px solid #000
+	&:hover,
+	&:focus
+		border-color: darken($accent, 5%)
+		color: darken($accent, 5%)
 
 
 
