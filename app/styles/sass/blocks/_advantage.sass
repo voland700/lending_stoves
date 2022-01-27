@@ -1,0 +1,73 @@
+.advantage
+	padding-top: 100px
+	padding-bottom: 150px
+.advantage_title
+	font-size: 2.2rem
+	text-align: center
+	padding: 0 12%
+	margin-bottom: 5rem
+	span
+		color: $accent
+.advantage_wrap
+	display: flex
+	//flex-wrap: wrap
+	justify-content: space-between
+	box-sizing: border-box
+.advantage_item
+	width: calc( 100%/3 - 70px )
+.advantage_img_wrap
+	display: flex
+	justify-content: center
+	justify-items: center
+	&::before
+		content: ''
+		display: block
+		padding-top: 50%
+.advantage_img
+	display: block
+	width: 30%
+	height: auto
+
+.advantage_h3
+	//sfont-size: 1.5rem
+	text-align: center
+	margin-bottom: 1rem
+.advantage_p
+	font-weight: 300
+
+@include media-breakpoint-down(xl)
+	.advantage_item
+		width: calc( 100%/3 - 50px )
+	.advantage_h3
+		font-size: 1.5rem
+	.advantage_img
+		width: 35%
+
+@include media-breakpoint-down(lg)
+	.advantage_wrap
+		flex-wrap: wrap
+	.advantage_title
+		padding: 0 5%
+	.advantage_item
+		width: calc( 100%/2 - 40px )
+	.advantage_img
+		width: 30%
+	.advantage_h3
+		font-size: 1.5rem
+		margin-bottom: 1.5rem
+
+@include media-breakpoint-down(md)
+	.advantage_item
+		width: calc( 100% - 40px )
+		margin-left: auto
+		margin-right: auto
+
+	.advantage_p
+		text-align: center
+
+@media only screen and (max-width : 450px)
+	.advantage_item
+		width: 90%
+		margin-bottom: 1rem
+	.advantage_img
+		width: 40%

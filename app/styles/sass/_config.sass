@@ -6,8 +6,12 @@ $purple: #D5205A
 $brown: #F09724
 $origin: #4f5a6c
 $bggray: #f5f5f5
+
+
 $fontsize: 16px // Body Font Size
 $textcolor: #444 // Text Color
+$lightcolor: #f1f1f1
+
 $lineheight: 1.65 // Document Line Height
 $userfont: roboto-oh5, sans-serif // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
@@ -137,8 +141,6 @@ body
 
 
 
-
-
 .btn-b
 	display: inline-block
 	text-decoration: none
@@ -224,6 +226,39 @@ body
 	&:focus
 		&::before
 			animation-play-state: paused
+
+
+.close
+	position: absolute
+	top: 5px
+	right: 5px
+	width: 35px
+	height: 35px
+	cursor: pointer
+	&::before,
+	&::after
+		content: ''
+		position: absolute
+		top: 21px
+		left: 7px
+		width: 18px
+		height: 1px
+		background-color: lighten($origin, 20%)
+		transition: background-color .15s ease-in-out
+	&:hover
+		&::before,
+		&::after
+			background-color: $accent
+
+.close:before
+	webkit-transform: rotate(45deg)
+	transform: rotate(45deg)
+.close:after
+	webkit-transform: rotate(-45deg)
+	transform: rotate(-45deg)
+
+
+
 
 
 @include media-breakpoint-down(xxl)

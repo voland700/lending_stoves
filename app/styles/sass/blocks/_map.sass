@@ -1,0 +1,100 @@
+.map
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	width: 100%
+	height: 720px
+	overflow: hidden
+	padding-top: 50px
+	padding-bottom: 50px
+.map_map
+	position: absolute
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	z-index: 1
+.map_info_wrap
+	position: relative
+	width: 460px
+	z-index: 10
+	padding: 60px
+	background-color: #fff
+	border-radius: 5px
+	margin-right: 200px
+	//margin-left: 200px
+	//box-shadow: 0 1rem 3rem rgba(0,0,0,.175)
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+
+.map_info_remove
+
+	font-size: 2rem
+	font-weight: 300
+
+.map_info_title
+	font-size: 1.4rem
+	margin-bottom: 1.5rem
+.map_info_phone
+	font-size: 1.4rem
+	line-height: 1.5rem
+	font-weight: 500
+	margin-bottom: .75rem
+
+.map_info_mail
+	color: $accent
+	margin-bottom: .75rem
+
+.map_info_address
+	line-height: 1.4
+	margin-bottom: 2rem
+.map_info_media_wrap
+.social_item
+	font-size: 1.6em
+	span[class^="icon-"]
+		display: inline-block
+		margin-right: 2px
+		color: #444
+		cursor: pointer
+		transition: color .15s ease-in-out
+		&:hover
+			color: $accent
+
+@include media-breakpoint-down(xxl)
+	.map_info_wrap
+		margin-right: 100px
+@include media-breakpoint-down(xl)
+	.map_info_wrap
+		margin-right: 50px
+@include media-breakpoint-down(lg)
+	.map
+		display: block
+		padding-top: 0
+		padding-bottom: 0
+	.map_info_wrap
+		width: 100%
+		margin: 0
+		padding: 30px 60px
+		box-shadow: none
+
+	.map_info_remove
+		display: none
+
+
+	.map_info_phone
+		margin-bottom: .5rem
+
+	.map_info_mail
+		color: $accent
+		margin-bottom: .5rem
+
+	.map_info_address
+		line-height: 1.4
+		margin-bottom: .5rem
+
+	.map_map
+		position: relative
+
+@media only screen and (max-width : 576px)
+	.map_info_wrap
+		padding: 30px
