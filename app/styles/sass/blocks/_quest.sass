@@ -7,7 +7,6 @@
 	min-height: 100vh
 	background-color: rgba(0, 0, 0, .4)
 
-
 .quest_wrap
 	display: flex
 	width: 1183px
@@ -15,18 +14,17 @@
 	box-sizing: border-box
 	overflow: hidden
 	border-radius: 5px
-
-
-
 	margin: auto
-
 
 .quest_body
 	width: 923px
 	height: 100%
 	background-color: #fff
 
-	padding: 30px
+	display: flex
+	flex-direction: column
+
+	padding: 30px 30px 20px 30px
 .quest_title
 	font-size: 1.7rem
 	font-weight: 500
@@ -36,21 +34,286 @@
 	display: flex
 	flex-wrap: wrap
 	justify-content: space-between
+
 .quest_item
 	width: calc((100% / 2) - .5rem)
 	min-height: 50px
 	margin-right: 1rem
 	margin-bottom: 1rem
-	box-sizing: border-box
+	box-sizing: border-boxf
 	border: 1px solid #e6e6e6
 	border-radius: 5px
-
 	&:nth-child(2)
 		margin-right: 0
+	&:hover,
+	&:focus
+		box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)
+.quest_item.active
+	border-color: rgba(206, 108, 71, .7)
 
-.quest_input
+
+.quest_lable-radio
+	position: relative
+	display: block
+	width: 100%
+	height: 100%
+	display: flex
+	justify-items: center
+	padding: 10px 10px 10px 48px
+	cursor: pointer
+
+.quest_lable-radio-inp
+	position: relative
+	display: block
+	width: 100%
+	height: 100%
+	display: flex
+	justify-items: center
+	padding: 0 0 0 48px
+	cursor: pointer
+
+.quest_item_name
+	display: inline-block
+	&::before
+		content: ''
+		position: absolute
+		top: 13px
+		left: 13px
+		display: block
+		width: 20px
+		height: 20px
+		border-radius: 50%
+		background-color: #e8e8e8
+
+.quest_radio
+	display: none
+	&:checked + .quest_item_name::before
+		font-size: 2rem
+		font-weight: 700
+		line-height: 20px
+		border: 2px solid $accent
+		background: #fff url(../images/src/icons/point.svg) center center no-repeat
+		box-shadow: 0 2px 4px 0 rgba(206, 108, 71, .5)
+
+	&:checked + .quest_item_name-inp::before
+		font-size: 2rem
+		font-weight: 700
+		line-height: 20px
+		border: 2px solid $accent
+		background: #fff url(../images/src/icons/point.svg) center center no-repeat
+		box-shadow: 0 2px 4px 0 rgba(206, 108, 71, .5)
+
+.quest_item_name-inp
+	position: relative
+	display: block
+	width: 100%
+	&::before
+		content: ''
+		position: absolute
+		top: 13px
+		left: -34px
+		display: block
+		width: 20px
+		height: 20px
+		border-radius: 50%
+		background-color: #e8e8e8
+
+
+
+
+.quest_radio-input
+	position: absolute
+	display: block
+	width: 100%
+	top: 0
+	right: 0
+	left: 0
+	bottom: 0
+	padding: 10px
+	border: none
+	background-color: $bggray
+	overflow: hidden
+	&::placeholder
+		font-weight: 300
+
+
 .quest_footer
+	display: flex
+	justify-content: space-between
+	justify-items: center
+	height: 70px
+	border-top: 1px solid #f3f3f3
+	margin-top: auto
+
+
+.quest_footer_stap_wrap
+	font-size: .95rem
+	span
+		display: inline-block
+		margin-right: .25rem
+	margin-top: auto
+	margin-bottom: auto
+.stap_namber
+	width: 25px
+	height: 25px
+	border-radius: 100%
+	background-color: darken($accent, 5%)
+	color: #fff
+	text-align: center
+
+
+
+
+.quest_footer_btn_wrap
+	width: 200px
+	display: flex
+	margin-top: auto
+	margin-bottom: auto
+.stap_btn_back
+	display: block
+	width: 45px
+	height: 45px
+	background-color: #fff
+	border: 2px solid darken(#f7f7f7, 10%)
+	border-radius: 50%
+	margin-right: 1rem
+	color: darken(#f7f7f7, 10%)
+.back_icon svg
+	fill: darken(#f7f7f7, 10%)
+.stap_btn_next
+	display: block
+	width: 120px
+	height: 45px
+	background-color: darken($accent, 5%)
+	border: 2px solid darken($accent, 5%)
+	border-radius: 45px
+	margin-right: 1rem
+	color: #fff
+	text-align: center
+	//line-height: 45px
+.next_icon svg
+	width: 25px
+	display: inline-block
+	margin-left: 2px
+	fill: #fff
+
+
+
+
+
 
 .quest_info
 	width: 260px
 	background-color: #f7f7f7
+	padding: 30px 15px
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+
+.quest_user_wrap
+	display: flex
+	justify-content: space-between
+	margin-bottom: 1.375rem
+.quest_user_img_wrap
+	position: relative
+	width: 80px
+	height: 80px
+	&::after
+		content: ''
+		display: block
+		width: 13px
+		height: 13px
+		box-sizing: border-box
+		background-color: green
+		border: 2px solid #fff
+		border-radius: 100%
+		position: absolute
+		bottom: 7px
+		right: 1px
+		z-index: 20
+
+.quest_user_img
+	width: 100%
+	border-radius: 100%
+	z-index: 10
+
+.quest_user_name_wrap
+	width: calc( 100% - 95px )
+	display: flex
+	flex-direction: column
+	justify-content: center
+	line-height: 1.35
+
+.quest_user_name
+	font-size: 1rem
+	font-weight: 500
+
+.quest_user_position
+	font-size: .8rem
+	font-weight: 300
+
+.quest_info_massege
+	position: relative
+	padding: .75rem
+	font-size: .8rem
+	font-weight: 300
+	line-height: 1.5
+	border-radius: .75rem
+	background-color: darken(#f7f7f7, 5% )
+
+	&::after
+		content: ''
+		width: 0
+		height: 0
+		border-left: 10px solid transparent
+		border-right: 10px solid transparent
+		border-bottom: 15px solid darken(#f7f7f7, 5% )
+		position: absolute
+		top: -15px
+		left: 30px
+
+.quest_info_offers_wrap
+
+.quest_offer_item
+	position: relative
+	display: flex
+	justify-content: space-between
+	width: 100%
+	height: 65px
+	padding: 10px
+	background-color: darken(#f7f7f7, 15% )
+	border-radius: 1rem
+	margin-bottom: 1rem
+	&::after
+		content: ''
+		display: block
+		width: 22px
+		height: 22px
+		background-color: darken(#f7f7f7, 20% )
+		border: 3px solid #fff
+		border-radius: 100%
+		background: darken(#f7f7f7, 20% ) url(../images/src/icons/locker.svg) center center no-repeat
+		background-size: 60%
+		padding: 3px
+		position: absolute
+		top: -10px
+		right: -7px
+		box-shadow: 0 4px 10px 0 rgba(0,0,0,.1)
+
+	&:last-child
+		margin-bottom: 0
+
+
+
+.quest_offer_icon
+	width: 45px
+	height: auto
+
+
+.quest_offer_text
+	width: calc( 100% - 50px )
+	font-size: .9rem
+	font-weight: 600
+	line-height: 1.25
+	text-align: right
+	padding-right: 10px
