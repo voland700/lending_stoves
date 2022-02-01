@@ -6,12 +6,9 @@ $purple: #D5205A
 $brown: #F09724
 $origin: #4f5a6c
 $bggray: #f5f5f5
-
-
 $fontsize: 16px // Body Font Size
 $textcolor: #444 // Text Color
 $lightcolor: #f1f1f1
-
 $lineheight: 1.65 // Document Line Height
 $userfont: roboto-oh5, sans-serif // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
@@ -141,6 +138,8 @@ body
 
 
 
+
+
 .btn-b
 	display: inline-block
 	text-decoration: none
@@ -200,6 +199,14 @@ body
 		left: 100%
 		opacity: 1
 
+@keyframes blick
+	from
+		left: -45%
+		opacity: 1
+	to
+		left: 100%
+		opacity: 1
+
 .shining
 	position: relative
 	overflow: hidden
@@ -227,38 +234,31 @@ body
 		&::before
 			animation-play-state: paused
 
-
-.close
-	position: absolute
-	top: 5px
-	right: 5px
-	width: 35px
-	height: 35px
-	cursor: pointer
-	&::before,
-	&::after
-		content: ''
+.blick
+	position: relative
+	overflow: hidden
+	transition: .2s
+	&::before
 		position: absolute
-		top: 21px
-		left: 7px
-		width: 18px
-		height: 1px
-		background-color: lighten($origin, 20%)
-		transition: background-color .15s ease-in-out
-	&:hover
-		&::before,
-		&::after
-			background-color: $accent
-
-.close:before
-	webkit-transform: rotate(45deg)
-	transform: rotate(45deg)
-.close:after
-	webkit-transform: rotate(-45deg)
-	transform: rotate(-45deg)
-
-
-
+		top: 0
+		left: -45%
+		z-index: 2
+		display: block
+		content: ''
+		width: 20%
+		height: 100%
+		background: linear-gradient(to right,rgba(255,255,255,0) 0,rgba(255,255,255,.4) 50%,rgba(255,255,255,0) 100%)
+		transform: skewX(-25deg)
+		transition: .2s
+		animation-name: shine
+		animation-duration: 3s
+		animation-delay: 1s
+		//animation-fill-mode: both
+		//animation-iteration-count: infinite
+	&:hover,
+	&:focus
+		&::before
+			animation-play-state: paused
 
 
 @include media-breakpoint-down(xxl)
