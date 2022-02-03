@@ -24,7 +24,7 @@ $gutter: $grid-gutter-width
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
 @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
-@import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+//@import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
 
 // FONTS LOAD SECTION
 
@@ -113,6 +113,8 @@ body
 .ml-15
 	margin-left: 2.5rem
 
+.m-0a
+	margin: 0 auto
 .w290
 	width: 290px
 
@@ -185,6 +187,17 @@ body
 	&:focus
 		border-color: darken($accent, 5%)
 		color: darken($accent, 5%)
+
+.btn-primary
+	display: block
+	color: #fff
+	background-color: #1266f1
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2), 0 2px 10px 0 rgba(0, 0, 0, .10)
+	&:focus,
+	&:hover
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .2), 0 4px 20px 0 rgba(0, 0, 0, .10)
+		color: #fff
+		background-color: #0c56d0
 
 
 

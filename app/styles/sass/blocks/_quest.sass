@@ -2,10 +2,10 @@
 	display: flex
 	justify-content: center
 	justify-items: center
-	min-height: 100vh
-	background-color: rgba(0, 0, 0, .7)
-
-	position: fixed
+	height: 100vh
+	//height: 100%
+	background-color: rgba(#1e1e1e, .9)
+	position: absolute
 	top: 0
 	right: 0
 	bottom: 0
@@ -13,16 +13,64 @@
 
 
 
+.quest
+	width: 1183px
+	//margin: auto
+
+	margin-top: 15vh
+	margin-left: auto
+	margin-right: auto
+	margin-bottom: auto
+
+
+.quest_close_wrap
+	height: 25px
+	position: relative
+
+
+.quest_btn_close
+	display: inline-block
+	position: absolute
+	right: .75rem
+	top: 0
+	width: 20px
+	height: 20px
+	color: #ffffff
+	opacity: 0.3
+	cursor: pointer
+	//background-color: rgba(#1e1e1e, .95 )
+
+.quest_btn_close:hover
+	opacity: 1
+
+.quest_btn_close:before, .quest_btn_close:after
+	position: absolute
+	left: 15px
+	content: ''
+	height: 20px
+	width: 2px
+	background-color: #ffffff
+
+.quest_btn_close:before
+	transform: rotate(45deg)
+
+.quest_btn_close:after
+	transform: rotate(-45deg)
+
+
 
 .last_wrap,
 .quest_wrap
+	position: relative
 	display: flex
-	width: 1183px
+	width: 100%
 	min-height: 650px
 	box-sizing: border-box
 	overflow: hidden
 	border-radius: 5px
-	margin: auto
+
+
+
 
 .quest_body
 	width: 923px
@@ -31,6 +79,7 @@
 	display: flex
 	flex-direction: column
 	padding: 30px 30px 20px 30px
+
 .quest_title
 	font-size: 1.7rem
 	font-weight: 500
@@ -424,7 +473,7 @@
 .last_body
 	width: calc( 100% - 400px )
 	background-color: #fff
-	padding: 40px 60px
+	padding: 40px 60px 40px 150px
 	display: flex
 
 
@@ -597,14 +646,19 @@
 @include media-breakpoint-down(xl)
 	.dell
 		padding: 20px
+
+	.quest
+		//flex-basis: 100%
+		width: 100%
+		margin-top: 5vh
 	.quest_wrap
-		flex-basis: 100%
+		//flex-basis: 100%
 	.last_wrap
 		flex-basis: 100%
 	.quest_body
-		flex-basis: 78%
+		flex-basis: 75%
 	.quest_info
-		flex-basis: 22%
+		flex-basis: 25%
 
 	.last_body
 		padding: 40px
@@ -614,6 +668,14 @@
 
 
 @include media-breakpoint-down(lg)
+	.quest
+		margin: auto
+
+	.quest_body
+		flex-basis: 75%
+	.quest_info
+		flex-basis: 30%
+
 	.quest_item
 		width: 100%
 		margin-right: 0

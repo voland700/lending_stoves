@@ -1,0 +1,92 @@
+.collback
+	width: 430px
+	margin-top: 15vh
+	margin-right: auto
+	margin-bottom: auto
+	margin-left: auto
+
+.collback_wrap
+	background-color: #fff
+	padding: 2rem 3rem 2.5rem 3rem
+	border-radius: .25rem
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+.modal_call_top
+	margin-bottom: 1.5rem
+.modal_body
+.modal_fild
+	margin-bottom: 1rem
+	label
+		display: block
+	input
+		width: 100%
+		border: 1px solid #c6c6c6
+		border-radius: 3px
+		padding: 3px 10px
+		font-size: 1.1em
+		font-style: italic
+		overflow: hidden
+
+.req
+	display: inline-block
+	margin-left: 5px
+	color: red
+.order_fild_valid
+	font-size: .9em
+	font-style: italic
+	color: red
+
+.modal_agreement
+	position: relative
+	label
+		display: inline-block
+		font-size: .8rem
+		margin-left:  1.5rem
+		margin-bottom: 2rem
+	a
+		display: inline
+		color: #777
+	.modal_check
+		position: absolute
+		top: 6px
+		left: 0
+
+
+.mod_body
+	display: flex
+	flex-direction: column
+.mod_icon_wrap
+	display: block
+	width: 130px
+	height: 130px
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+	margin: 1rem auto 1.5rem auto
+
+
+.mod_icon_wrap.success
+	background-image: url(/images/src/icons/success.svg)
+.mod_icon_wrap.error
+	background-image: url(/images/src/icons/error.svg)
+.mod_title
+	text-align: center
+.mod_subtitle
+	line-height: 1.5
+	margin-bottom: 2rem
+
+
+
+
+
+
+
+
+@include media-breakpoint-down(lg)
+	.collback
+		margin-top: 10vh
+@include media-breakpoint-down(md)
+	.collback
+		margin-top: auto
+@media only screen and (max-width : 470px)
+	.collback
+		width: 100%
