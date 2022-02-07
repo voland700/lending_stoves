@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-
+/*
 	//  for phone input: country - flags, mask, validation
   let input = document.querySelector("#phone");
 	let errorMsg = document.querySelector("#error-msg");
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneRegionCode: 'RU'
 	});
 
-
+*/
 
 
 
