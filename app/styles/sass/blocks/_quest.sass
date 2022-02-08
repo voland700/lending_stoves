@@ -1,18 +1,24 @@
 .dell
-	display: flex
+	display: none
 	justify-content: center
 	justify-items: center
 	height: 100vh
-	//height: 100%
 	background-color: rgba(#1e1e1e, .9)
-	position: absolute
+	position: fixed
 	top: 0
 	right: 0
 	bottom: 0
 	left: 0
+	opacity: 0
+	z-index: 25
+	pointer-events: auto
+	overflow-y: auto
 
-
-
+.dell.show
+	display: flex
+	transition: 1s
+	animation: appear .5s 1
+	animation-fill-mode: forwards
 .quest
 	width: 1183px
 	//margin: auto
