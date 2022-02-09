@@ -308,7 +308,7 @@
 
 
 
-<div class="dell"  id="modal">
+<div class="dell show"  id="modal">
 
 	<div class="quest">
 		<div class="quest_close_wrap">
@@ -317,29 +317,36 @@
 
 		<div class="quest_wrap">
 
-			<div class="quest_body">
+
+
+
+
+
+
+
+			<form action="#" method="post" class="quest_body" id="formBody">
 				<h3 class="quest_title">Для каких целей вам нужна печь?</h3>
 				<div class="quest_inner">
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="radio"  value="1" class="quest_radio" name="stap_1">
+							<input type="radio"  value="Для отопления дома или дачи" class="quest_radio" name="step" checked>
 							<span class="quest_item_name">Для отопления дома или дачи</span>
 						</label>
 					</div>
 
 					<div class="quest_item __active"> <!-- /.active -->
 						<label class="quest_lable-radio">
-							<input type="radio" value="2" class="quest_radio" name="stap_1">
+							<input type="radio" value="Для отопления хозяйственного помещения" class="quest_radio" name="step">
 							<span class="quest_item_name">Для отопления хозяйственного помещения</span>
 						</label>
 					</div>
 
 					<div class="quest_item">
 						<label class="quest_lable-radio-inp">
-							<input type="radio" value="2" class="quest_radio" vavue="" name="stap_1" placeholder="Другое...">
+							<input type="radio" class="quest_radio" vavue="" name="step" placeholder="Другое..." id="extraRadio">
 							<span class="quest_item_name-inp">
-								<input type="text" class="quest_radio-input" vavue="" placeholder="Другое...">
+								<input type="text" name="extra" class="quest_radio-input" vavue="" placeholder="Другое..." id="extraText">
 							</span>
 						</label>
 					</div>
@@ -361,7 +368,7 @@
 							</svg></span>
 						</button>
 
-						<button class="stap_btn_next blick">Далее
+						<button class="stap_btn_next blick" id="btnNext">Далее
 							<span class="next_icon"><svg viewBox="0 0 24 24" class="mdi-icon mdi-24px">
 									<title>mdi-arrow-right</title>
 									<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" stroke-width="0" fill-rule="nonzero"></path>
@@ -380,7 +387,7 @@
 
 				</div><!-- // footer -->
 
-			</div>
+			</form>
 
 			<div class="quest_info">
 
@@ -410,7 +417,10 @@
 				</div>
 
 			</div>
-		</div>
+
+
+
+		</div> <!-- WRUP for FETCH -->
 
 
 	</div>
@@ -437,6 +447,108 @@
 	});
 
 
+	// действия с доплнительным полем Input  - extra
+	if(document.getElementById('extraRadio')){
+		document.getElementById('extraText').onfocus = function () {
+			document.getElementById('extraRadio').checked = true;
+			if (btnNext.hasAttribute('disabled')) btnNext.removeAttribute('disabled');
+		}
+	}
+
+	let btnNext = document.getElementById('btnNext');
+
+	//кнопка - Next активная при выборе варианта
+	if(btnNext.hasAttribute('disabled')){
+		const items = document.querySelectorAll('input[name="step"]')
+
+		items.forEach((item)=>{
+			item.addEventListener('change', function () {
+				btnNext.removeAttribute('disabled');
+			});
+		});
+	}
+
+	//кнопка - Next активная при выборе обязательного текстового поля
+	if (document.getElementById('textMessage')) {
+		let textMessage = document.getElementById('textMessage');
+		if (textMessage.value == '') {
+			textMessage.oninput = function () {
+				if (btnNext.hasAttribute('disabled')) {
+					btnNext.removeAttribute('disabled');
+				} else {
+					return false;
+				}
+			};
+		}
+	}
+
+	//console.log('disabled');
+/*
+	function serializeForm(formNode) {
+		const { elements } = formNode
+		const data = Array.from(elements)
+			.filter((item) => !!item.name)
+			.map((element) => {
+				const { name, value } = element
+
+				return { name, value }
+			})
+
+		console.log(data)
+	}
+
+*/
+
+	function serializeForm(formNode) {
+		const { elements } = formNode
+
+		Array.from(elements)
+			.forEach((element) => {
+
+
+
+
+				//console.log(element.attributes.type)
+
+				//console.log(element.attributes.value)
+
+				//console.log(element.attributes.value.nodeValue)
+
+				//if(element.type == 'radio' && element.checked == true )
+
+				if(element.type == 'radio' && element.checked == true ){
+					const { name, value } = element
+					console.log({ name, value })
+				}
+
+
+				if (element.type == 'text' && !element.value == false) {
+					const { name, value } = element
+					console.log({ name, value })
+				}
+
+
+
+				//console.log(element.type);
+
+				//const { name, value } = element
+				//console.log({ name, value })
+			})
+	}
+
+
+
+
+	//btnNext.onclick = serializeForm(formBody);
+	btnNext.addEventListener('click', function(e){
+		e.preventDefault();
+
+		serializeForm(formBody);
+
+
+
+
+	})
 
 
 
