@@ -315,7 +315,13 @@
 		</div>
 
 		<div class="quest_wrap">
-			<div class="quest_body">
+
+
+
+			<form action="#" method="post" class="quest_body" id="formBody">
+				<input type="hidden" name="step" value="4">
+				<input type="hidden" name="prev" value="5">
+				<input type="hidden" name="next" value="6">
 				<h3 class="quest_title">Какие критерии для вас важны?</h3>
 				<div class="quest_inner">
 
@@ -326,21 +332,21 @@
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="checkbox"  value="1" class="quest_checkbox" name="stap_3">
+							<input type="checkbox"  value="Нужна печь с высоким КПД, чтобы быстро разогревала помещение" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Нужна печь с высоким КПД, чтобы быстро разогревала помещение</span>
 						</label>
 					</div>
 
 					<div class="quest_item __active"> <!-- /.active -->
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="2" class="quest_checkbox" name="stap_2">
+							<input type="checkbox" value="Нужна печь с варочной поверхностью для приготовления пищи" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Нужна печь с варочной поверхностью для приготовления пищи</span>
 						</label>
 					</div>
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="1" class="quest_checkbox" name="stap_2">
+							<input type="checkbox" value="Хочу печь длительного горения, чтобы обогревала долго" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Хочу печь длительного горения, чтобы обогревала долго</span>
 						</label>
 					</div>
@@ -348,28 +354,28 @@
 					<div class="quest_item __active">
 						<!-- /.active -->
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="2" class="quest_checkbox" name="stap_2">
+							<input type="checkbox" value="Хочу вмонтировать печь между двумя помещениями" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Хочу вмонтировать печь между двумя помещениями</span>
 						</label>
 					</div>
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="1" class="quest_checkbox" name="stap_2">
+							<input type="checkbox" value="Нужна печь с регулировкой подачи воздуха" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Нужна печь с регулировкой подачи воздуха</span>
 						</label>
 					</div>
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="1" class="quest_checkbox" name="stap_2">
+							<input type="checkbox" value="Хочу, чтобы дверца была со стеклом" class="quest_checkbox" name="step">
 							<span class="quest_item_name_2">Хочу, чтобы дверца была со стеклом</span>
 						</label>
 					</div>
 
 					<div class="quest_item">
 						<label class="quest_lable-radio">
-							<input type="checkbox" value="1" class="quest_checkbox" name="stap_2" >
+							<input type="checkbox" value="Хочу печь из чугуна" class="quest_checkbox" name="step" >
 							<span class="quest_item_name_2">Хочу печь из чугуна</span>
 						</label>
 					</div>
@@ -379,9 +385,9 @@
 
 					<div class="quest_item">
 						<label class="quest_lable-radio-inp">
-							<input type="checkbox" value="2" class="quest_checkbox" vavue="" name="stap_2" id="extraRadio" placeholder="Другое...">
+							<input type="checkbox" value="" class="quest_checkbox" vavue="" name="step" id="extraRadio" placeholder="Другое...">
 							<span class="quest_item_name_2-inp">
-								<input type="text" class="quest_radio-input" vavue="" id="extraText" placeholder="Другое...">
+								<input type="text" class="quest_radio-input" name="extra" vavue="" id="extraText" placeholder="Другое...">
 							</span>
 						</label>
 					</div>
@@ -396,14 +402,14 @@
 
 
 					<div class="quest_footer_btn_wrap"><!--  / atr for btn:   disabled="disabled" -->
-						<button class="stap_btn_back" id="btnNext">
+						<button class="stap_btn_back" id="btnPrev">
 							<span class="back_icon"><svg viewBox="0 0 24 24" class="mdi-icon mdi-24px">
 								<title>mdi-arrow-left</title>
 								<path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" stroke-width="0" fill-rule="nonzero"></path>
 							</svg></span>
 						</button>
 
-						<button class="stap_btn_next blick">Далее
+						<button class="stap_btn_next blick" id="btnNext">Далее
 							<span class="next_icon"><svg viewBox="0 0 24 24" class="mdi-icon mdi-24px">
 									<title>mdi-arrow-right</title>
 									<path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" stroke-width="0" fill-rule="nonzero"></path>
@@ -422,7 +428,7 @@
 
 				</div><!-- // footer -->
 
-			</div>
+			</form>
 
 			<div class="quest_info">
 
@@ -521,11 +527,45 @@
 
 
 
-	btnNext.onclick = function (e) {
-		e.preventDefault();
+	function serializeForm(formNode) {
+		const { elements } = formNode
+		let body = {};
+		let answers = [];
+		Array.from(elements)
+			.forEach((element) => {
+				if (element.type == 'radio' && element.checked == true && !element.value == false) {
+					const { name, value } = element
+					body.answer = element.value
+				}
+				if (element.type == 'checkbox' && element.checked == true && !element.value == false) {
+					const { name, value } = element
+					answers.push(element.value);
+				}
+				if (element.type == 'text' && !element.value == false) {
+					const { name, value } = element
+					body.extra = element.value
+				}
+				if (element.type == 'hidden') {
+					const { name, value } = element
+					body[element.name] = element.value
+				}
+			})
+			if(answers.length) body.answer = answers;
+			console.log(body);
+	}
 
-		let stepData = new FormData(formBody);
-		console.log(stepData);
+	//btnNext.onclick = serializeForm(formBody);
+	btnNext.addEventListener('click', function (e) {
+		e.preventDefault();
+		serializeForm(formBody);
+	})
+
+
+	if(document.getElementById('btnPrev')){
+		btnPrev.onclick = function(e){
+			e.preventDefault();
+			alert('LLLLLLLL');
+		};
 	}
 
 
@@ -533,8 +573,25 @@
 
 
 
-</script>
+	function nextQuiz(e){
+		e.preventDefault();
 
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
 
 
