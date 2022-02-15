@@ -1,19 +1,25 @@
 <!--#set var="title" value="OptimizedHTML 5" -->
 <!--#include virtual="/parts/header.html" -->
-<div class="dell">
+<div style="height: 45vh;"></div>
 
+<p id="ModalShow" style="cursor: pointer; text-align: center;">Кнопка</p>
+
+<div style="height: 45vh;"></div>
+
+
+<div class="dell" id="callBack">
 	<div class="collback">
 		<div class="quest_close_wrap">
-			<span class="quest_btn_close"></span>
+			<span class="quest_btn_close" id="btnCallbackCross"></span>
 		</div>
-
 		<div class="collback_wrap">
 			<div class="modal_call_top">
 				<h3>Заказать звонок</h3>
 			</div>
 
 			<form action="#" method="POST" id="CollBackForm">
-
+				@csrf
+				@method('POST')
 				<div class="modal_body">
 
 					<div class="modal_fild">
@@ -37,15 +43,88 @@
 				</div>
 
 				<div class="modal_call_footer">
-						<button class="btn btn-primary" onclick="sendCollBack(event);return false">Отправить</button>
+					<button class="btn btn-primary" id="btnCallback">Отправить</button>
 				</div>
 			</form>
 
 		</div>
 
 	</div>
-
-
-
 </div><!-- /DELL-->
+
+<script>
+	document.getElementById('ModalShow').onclick = function(e){
+		e.preventDefault();
+		callBackShow();
+	}
+
+	function callBackShow(){
+
+		let callBack = document.getElementById('callBack');
+		callBack.classList.toggle("show");
+
+
+		const CollBackName = document.getElementById('CollBackName');
+		const CallBackPhone = document.getElementById('CallBackPhone');
+		const CollBackNameValidate = document.getElementById('CollBackNameValidate');
+		const CallBackPhoneValidate = document.getElementById('CallBackPhoneValidate');
+		let valid = true;
+
+		CollBackName.onfocus = function () {
+			if (this.classList.contains('invalid')) {
+				this.classList.remove('invalid');
+				CollBackNameValidate.innerText = "";
+				valid = true;
+			}
+		};
+
+		CallBackPhone.onfocus = function () {
+			if (this.classList.contains('invalid')) {
+				this.classList.remove('invalid');
+				CallBackPhoneValidate.innerText = "";
+				valid = true;
+			}
+		};
+
+
+		document.getElementById('btnCallback').onclick = function(e){
+			e.preventDefault();
+			if (CollBackName.value.trim() === '') {
+				if (!CollBackName.classList.contains('invalid')) CollBackName.classList.add('invalid');
+				CollBackNameValidate.innerText = 'Укажите Ваше имя';
+				valid = false;
+			}
+			if (CallBackPhone.value.trim() === '') {
+				if (!CallBackPhone.classList.contains('invalid')) CallBackPhone.classList.add('invalid');
+				CallBackPhoneValidate.innerText = 'Укажите номер телефона';
+				valid = false;
+			}
+			if (document.getElementById('CallBackAgreement').checked == false) valid = false;
+
+			if(!valid) {
+				return false;
+			} else {
+				closeCallBack();
+				alert('УРРАА!!!!');
+			}
+		}
+
+		document.getElementById('btnCallbackCross').onclick = function(e){
+			e.preventDefault();
+			closeCallBack();
+		}
+
+
+		function closeCallBack(){
+			callBack.classList.toggle("show");
+		}
+
+	}
+
+
+
+
+</script>
+
+
 <!--#include virtual="/parts/footer.html" -->
