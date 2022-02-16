@@ -112,6 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
 	*/
 
 
+	document.querySelectorAll('.social_item').forEach((item)=>{
+		item.addEventListener('click', function (e) {
+			e.preventDefault();
+			window.open(item.dataset.url);
+
+			//console.log(item.dataset.url);
+
+		});
+
+
+
+	});
+
+
 
 
 
